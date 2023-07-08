@@ -3,9 +3,12 @@ const todosArray = [];
 // CREATING TODOS
 export function createTodo(data, project) {
   const proto = {
+    deleteTodo,
+    edit,
     project,
   };
   const todo = {
+    id: getId(),
     title: data.title,
     description: data.description,
     dueDate: data.dueDate,
@@ -16,20 +19,25 @@ export function createTodo(data, project) {
 }
 
 // GETTING TODOS
-export function todos() {
-  const proto = {
-    deleteTodo,
-    edit,
-  };
-  return Object.assign(Object.create(proto), todosArray);
+export function getTodos() {
+  return todosArray;
 }
 
 // BEHAVIOURS
 
-function deleteTodo(index) {
-  todosArray.splice(index, 1);
+function deleteTodo() {
+  todosArray.splice(todosArray.indexOf(this), 1);
 }
 
-function edit(data, index) {
+function edit(data) {
+  const index = todosArray.indexOf(this);
   todosArray[index] = Object.assign(todosArray[index], data);
+}
+
+function getId() {
+  const id = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+  Object.keys(todosArray).forEach((prop) => {
+    if (id === todosArray[prop]) getId();
+  });
+  return id;
 }
