@@ -6,6 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
 </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+
+<body>
+    <header>
+        <img src="./img/todoLogo.png" alt="todo Logo">
+        <p>To-Do</p>
+    </header>
+    <section id="siderbar">
+        <div id="projects">
+            <h2>Projects</h2>
+            <button class="addProjectButton">+ Add Project</button>
+            <div>
+                <input class="projectInput" type="text" style="display: none;">
+                <button class="submitProjectButton" style="display: none;">Add</button>
+            </div>
+            <section class="projectsSection"></section>
+        </div>
+    </section>
+    <main>
+        <section class="todos"></section>
+        <button class="add">+</button>
+        <section class="todoInputs" style="display: none;">
+            <p class="titleInputPara">
+                <input type="text" id="titleInput" placeholder="Title">
+            </p>
+            <p class="dateInputPara">
+                <input type="date" id="dateInput">
+            </p>
+            <p class="descriptionInputPara">
+                <textarea name="description" id="descriptionInput" cols="30" rows="10"></textarea>
+            </p>
+            <p class="priorityInputPara">
+                <button id="low">Low</button>
+                <button id="medium">Medium</button>
+                <button id="high">High</button>
+            </p>
+            <button class="submit" style="display: none;">Add</button>
+            <button class="updateTodo" style="display: none;">Update</button>
+        </section>
+    </main>
+    <footer>
+        Copywright &copy AbdulRehman
+    </footer>
+    <script src="./main.js"></script>
+</body>
+
+</html>
 
 <body>
     <script src="./main.js"></script>
