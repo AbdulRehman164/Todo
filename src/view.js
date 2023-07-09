@@ -1,6 +1,7 @@
 import { getProject } from './project';
+import getSelectedProjectName from './selectedProject';
 
-export default function updateView() {
+export function updateProjectView() {
   (function updateProject() {
     const projects = getProject();
     const projectsSection = document.querySelector('.projectsSection');
@@ -12,18 +13,21 @@ export default function updateView() {
     });
   })();
 
-  (function renderTodos() {
+  (function renderProjectTodos() {
+    getSelectedProjectName(); // setting up the event listeners
     const projectDivs = document.querySelectorAll('.project');
-    updateTodos(projectDivs[0].textContent); // initial Rendering
+    const todosSection = document.querySelector('.todos');
+    if (todosSection.textContent === '')
+      updateTodosView(projectDivs[0].textContent); // initial Rendering
     projectDivs.forEach((projectDiv) => {
       projectDiv.addEventListener('click', () => {
-        updateTodos(projectDiv.textContent);
+        updateTodosView(getSelectedProjectName());
       });
     });
   })();
 }
 
-function updateTodos(projectName) {
+export function updateTodosView(projectName) {
   const todosSection = document.querySelector('.todos');
   todosSection.textContent = '';
   const todos = getProject()[projectName].getProjectTodos();

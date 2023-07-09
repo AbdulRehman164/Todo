@@ -1,6 +1,6 @@
 import { createTodo, getTodos } from './todo';
 import { createProject, getProject } from './project';
-import updateView from './view';
+import { updateProjectView } from './view';
 
 const data = {
   title: 'Inbox',
@@ -24,4 +24,4 @@ createProject('Inbox');
 createProject('Project1');
 createTodo(data2, 'Project1');
 createTodo(data2, 'Project1');
-updateView();
+updateProjectView();
