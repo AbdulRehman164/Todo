@@ -12,20 +12,24 @@ export default function updateView() {
     });
   })();
 
-  (function updateTodos() {
+  (function renderTodos() {
     const projectDivs = document.querySelectorAll('.project');
-    const todosSection = document.querySelector('.todos');
+    updateTodos(projectDivs[0].textContent); // initial Rendering
     projectDivs.forEach((projectDiv) => {
       projectDiv.addEventListener('click', () => {
-        todosSection.textContent = '';
-        const projectName = projectDiv.textContent;
-        const todos = getProject()[projectName].getProjectTodos();
-        todos.forEach((todo) => {
-          todosSection.appendChild(createTodoView(todo));
-        });
+        updateTodos(projectDiv.textContent);
       });
     });
   })();
+}
+
+function updateTodos(projectName) {
+  const todosSection = document.querySelector('.todos');
+  todosSection.textContent = '';
+  const todos = getProject()[projectName].getProjectTodos();
+  todos.forEach((todo) => {
+    todosSection.appendChild(createTodoView(todo));
+  });
 }
 
 function createTodoView(todo) {
