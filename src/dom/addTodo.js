@@ -20,19 +20,29 @@ function submit() {
   const dateInput = document.querySelector('#dateInput');
   const descriptionInput = document.querySelector('#descriptionInput');
 
-  const todo = {
-    title: titleInput.value,
-    dueDate: dateInput.value,
-    description: descriptionInput.value,
-    priority: getPriority(),
-    isChecked: false,
-  };
-  createTodo(todo, getSelectedProjectName());
-  document.querySelector('.todoInputs').style.display = 'none';
-  updateTodosView(getSelectedProjectName());
-  todoFunctionality();
+  const isValid =
+    dateInput.checkValidity() &&
+    titleInput.checkValidity() &&
+    descriptionInput.checkValidity();
+  if (!isValid) {
+    dateInput.reportValidity();
+    titleInput.reportValidity();
+    descriptionInput.reportValidity();
+  } else {
+    const todo = {
+      title: titleInput.value,
+      dueDate: dateInput.value,
+      description: descriptionInput.value,
+      priority: getPriority(),
+      isChecked: false,
+    };
+    createTodo(todo, getSelectedProjectName());
+    document.querySelector('.todoInputs').style.display = 'none';
+    updateTodosView(getSelectedProjectName());
+    todoFunctionality();
 
-  titleInput.value = '';
-  dateInput.value = '';
-  descriptionInput.value = '';
+    titleInput.value = '';
+    dateInput.value = '';
+    descriptionInput.value = '';
+  }
 }
