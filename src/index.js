@@ -1,6 +1,6 @@
 import { createTodo } from './logic/todo';
 import { createProject } from './logic/project';
-import updateProjectView from './dom/projectView';
+import renderView from './dom/renderView';
 
 const data = {
   title: 'Inbox',
@@ -24,4 +24,4 @@ createProject('Inbox');
 createProject('Project1');
 createTodo(data2, 'Project1');
 createTodo(data2, 'Project1');
-updateProjectView();
+renderView();

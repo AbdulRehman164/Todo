@@ -1,8 +1,9 @@
 import updateTodosView from './todosView';
 import { getProject } from '../logic/project';
-import getSelectedProjectName from './selectedProject';
-import getPriority from './priority';
+import getSelectedProjectName from './utilityModules/selectedProject';
+import getPriority from './utilityModules/priority';
 
+// every action that is going to happen on a todo
 export default function todoFunctionality() {
   deleteTodo();
   editTodo();
