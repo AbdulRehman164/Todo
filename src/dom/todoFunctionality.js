@@ -7,6 +7,7 @@ import getPriority from './utilityModules/priority';
 export default function todoFunctionality() {
   deleteTodo();
   editTodo();
+  isCompleted();
 }
 
 function deleteTodo() {
@@ -62,4 +63,14 @@ function renderPreviousValues(index) {
   titleInput.value = todo.title;
   dateInput.value = todo.dateInput;
   descriptionInput.value = todo.description;
+}
+
+function isCompleted() {
+  const checkboxes = document.querySelectorAll('input[type = "checkbox"]');
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener('change', () => {
+      getProject()[getSelectedProjectName()].getProjectTodos()[i].isChecked =
+        checkboxes[i].checked;
+    });
+  }
 }
