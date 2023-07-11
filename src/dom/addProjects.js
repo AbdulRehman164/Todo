@@ -10,15 +10,19 @@ export default function addProject() {
   addProjectButton.addEventListener('click', () => {
     projectInputDiv.style.display = 'block';
     submitProjectButton.addEventListener('click', () => {
-      projectInputDiv.style.display = 'none';
       const projectInput = document.querySelector('.projectInput');
-      createProject(projectInput.value);
+      const isValid = projectInput.checkValidity();
+      if (!isValid) projectInput.reportValidity();
+      else {
+        projectInputDiv.style.display = 'none';
+        createProject(projectInput.value);
+        projectInput.value = '';
+        updateProjectView();
 
-      updateProjectView();
-
-      // setting event listeners
-      getSelectedProjectName();
-      updateProjectTodos();
+        // setting event listeners
+        getSelectedProjectName();
+        updateProjectTodos();
+      }
     });
   });
 }
