@@ -1,5 +1,5 @@
 import todoFunctionality from './todoFunctionality';
-import { getProject } from './project';
+import { getProject } from '../logic/project';
 import getSelectedProjectName from './selectedProject';
 import updateTodosView from './todosView';
 import getPriority from './priority';

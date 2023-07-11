@@ -1,5 +1,5 @@
 import updateTodosView from './todosView';
-import { getProject } from './project';
+import { getProject } from '../logic/project';
 import getSelectedProjectName from './selectedProject';
 import getPriority from './priority';
 

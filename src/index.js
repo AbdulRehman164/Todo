@@ -1,6 +1,6 @@
-import { createTodo } from './todo';
-import { createProject } from './project';
-import updateProjectView from './projectView';
+import { createTodo } from './logic/todo';
+import { createProject } from './logic/project';
+import updateProjectView from './dom/projectView';
 
 const data = {
   title: 'Inbox',

@@ -1,4 +1,4 @@
-import { getProject } from './project';
+import { getProject } from '../logic/project';
 
 export default function updateTodosView(projectName) {
   const todosSection = document.querySelector('.todos');
