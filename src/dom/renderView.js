@@ -1,8 +1,9 @@
-import todoFunctionality from './todoFunctionality';
+// import todoFunctionality from './todoFunctionality';
 import getSelectedProjectName from './utilityModules/selectedProject';
-import updateTodosView from './todosView';
 import getPriority from './utilityModules/priority';
 import updateProjectView from './projectView';
+import addProject from './addProjects';
+import updateProjectTodos from './updateProjectTodos';
 
 export default function renderView() {
   // rendering inital projects
@@ -11,19 +12,8 @@ export default function renderView() {
   // setting up the event listeners
   getSelectedProjectName();
   getPriority();
+  addProject();
 
-  const projectDivs = document.querySelectorAll('.project');
-  const todosSection = document.querySelector('.todos');
-
-  // initial Rendering
-  if (todosSection.textContent === '')
-    updateTodosView(projectDivs[0].textContent);
-  todoFunctionality();
-
-  projectDivs.forEach((projectDiv) => {
-    projectDiv.addEventListener('click', () => {
-      updateTodosView(getSelectedProjectName());
-      todoFunctionality();
-    });
-  });
+  // Initial projects
+  updateProjectTodos();
 }
