@@ -4,6 +4,7 @@ import getPriority from './utilityModules/priority';
 import updateProjectView from './projectView';
 import addProject from './addProjects';
 import updateProjectTodos from './updateProjectTodos';
+import addTodo from './addTodo';
 
 export default function renderView() {
   // rendering inital projects
@@ -16,4 +17,6 @@ export default function renderView() {
 
   // Initial projects
   updateProjectTodos();
+
+  addTodo();
 }
