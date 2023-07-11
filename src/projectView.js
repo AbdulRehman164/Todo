@@ -1,7 +1,8 @@
-import deleteTodo from './delete';
+import todoFunctionality from './todoFunctionality';
 import { getProject } from './project';
 import getSelectedProjectName from './selectedProject';
 import updateTodosView from './todosView';
+import getPriority from './priority';
 
 export default function updateProjectView() {
   (function updateProject() {
@@ -17,7 +18,9 @@ export default function updateProjectView() {
   })();
 
   (function renderProjectTodos() {
-    getSelectedProjectName(); // setting up the event listeners
+    // setting up the event listeners
+    getSelectedProjectName();
+    getPriority();
 
     const projectDivs = document.querySelectorAll('.project');
     const todosSection = document.querySelector('.todos');
@@ -25,12 +28,12 @@ export default function updateProjectView() {
     // initial Rendering
     if (todosSection.textContent === '')
       updateTodosView(projectDivs[0].textContent);
-    deleteTodo();
+    todoFunctionality();
 
     projectDivs.forEach((projectDiv) => {
       projectDiv.addEventListener('click', () => {
         updateTodosView(getSelectedProjectName());
-        deleteTodo();
+        todoFunctionality();
       });
     });
   })();
