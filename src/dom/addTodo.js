@@ -5,9 +5,9 @@ import getPriority from './utilityModules/priority';
 import getSelectedProjectName from './utilityModules/selectedProject';
 
 export default function addTodo() {
-  const addTodoButton = document.querySelector('.add');
+  const addTodoButton = document.querySelector('.addTodo');
   const todoInputs = document.querySelector('.todoInputs');
-  const submitTodoButton = document.querySelector('.submit');
+  const submitTodoButton = document.querySelector('.submitTodo');
   addTodoButton.addEventListener('click', () => {
     todoInputs.style.display = 'block';
     submitTodoButton.style.display = 'block';
