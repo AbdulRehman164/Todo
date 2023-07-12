@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
+    <link rel="icon" href="./img/todoLogo.png">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -18,8 +20,11 @@
             <section class="projectsSection"></section>
             <button class="addProjectButton">+ Add Project</button>
             <div class="projectInputDiv" style="display: none;">
-                <input class="projectInput" type="text" maxlength="25" required>
-                <button class="submitProjectButton">Add</button>
+                <input class="projectInput" type="text" maxlength="10" required>
+                <div projectInputButtons>
+                    <button class="cancel cancelProjectInput">Cancel</button>
+                    <button class="submitProjectButton">Add</button>
+                </div>
             </div>
         </div>
     </section>
