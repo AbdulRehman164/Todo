@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Roboto&display=swap');
+
+:root {
+  --shadow: 2px 2px 10px -2px gray;
+  --first-background: #6dc0d5;
+  --second-background: #eff8fb;
+  --input-focus: #15a8cd;
+  --project-hover: #dbf2f9;
+  --cancel-button: rgb(209, 8, 8);
+  --low-priority: green;
+  --medium-priority: orange;
+  --high-priority: red;
+  --main-font-color: white;
+  --blur: rgba(0, 0, 0, 0.7);
+  --popUp-shadow: 2px 2px 4px 5px rgba(0, 0, 0, 0.15);
+  --project-input-border: 1px solid rgb(211, 211, 211);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +38,8 @@ header {
   align-items: center;
   gap: 2rem;
   padding-left: 1rem;
-  background-color: #6dc0d5;
-  color: white;
+  background-color: var(--first-background);
+  color: var(--main-font-color);
 }
 header p {
   font-size: 2rem;
@@ -37,7 +54,7 @@ header img {
 
 #sidebar {
   padding: 1rem;
-  background-color: #eff8fb;
+  background-color: var(--second-background);
 }
 
 /* SIDEBAR projects */
@@ -72,15 +89,15 @@ header img {
   padding: 0.3rem;
 }
 .project:hover {
-  background-color: #dbf2f9;
+  background-color: var(--project-hover);
   border-radius: 10px;
 }
 
 /* SIDEBAR project inputs and buttons */
 .addProjectButton {
   border: none;
-  background-color: #6dc0d5;
-  color: white;
+  background-color: var(--first-background);
+  color: var(--main-font-color);
   padding: 10px;
   border-radius: 10px;
   font-size: 1.2rem;
@@ -88,6 +105,7 @@ header img {
   text-align: center;
   cursor: pointer;
   align-self: flex-start;
+  box-shadow: var(--shadow);
 }
 
 .projectInput {
@@ -95,12 +113,12 @@ header img {
   border-radius: 5px;
   font-size: 1.09rem;
   width: 100%;
-  border: 2px solid rgb(211, 211, 211);
+  border: var(--project-input-border);
   outline: none;
 }
 .projectInput:focus {
   outline: none;
-  border: 2px solid #15a8cd;
+  border: 2px solid var(--input-focus);
 }
 .projectInputButtons {
   display: flex;
@@ -114,26 +132,28 @@ header img {
   gap: 0.7rem;
 }
 .submit {
-  background-color: #6dc0d5;
+  background-color: var(--first-background);
   font-size: 1.1rem;
   flex: 1;
   padding: 0.2rem 0;
   font-weight: bold;
   border: none;
-  color: white;
+  color: var(--main-font-color);
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: var(--shadow);
 }
 .cancel {
-  background-color: rgb(209, 8, 8);
+  background-color: var(--cancel-button);
   font-size: 1.1rem;
   flex: 1;
   padding: 0.2rem 0;
   font-weight: bold;
   border: none;
-  color: white;
+  color: var(--main-font-color);
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
 /* MAIN */
@@ -152,10 +172,10 @@ main {
   left: 24%;
   height: 7 0vh;
   width: 50vw;
-  background-color: #eff8fb;
+  background-color: var(--second-background);
   z-index: 9;
   border-radius: 5px;
-  box-shadow: 2px 2px 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--popUp-shadow);
 }
 .todoInputsMain {
   padding: 1em;
@@ -195,24 +215,25 @@ main {
 }
 
 .createTodoHeading {
-  background-color: #6dc0d5;
-  color: white;
+  background-color: var(--first-background);
+  color: var(--main-font-color);
   padding: 0.2em;
   font-size: 2rem;
   border-radius: 5px 5px 0 0;
 }
 
 input[type='date'] {
-  background-color: #6dc0d5;
+  background-color: var(--first-background);
   padding: 0.3em;
   font-family: robot, sans-serif;
-  color: #ffffff;
+  color: var(--main-font-color);
   border: none;
   outline: none;
   border-radius: 5px;
+  /* box-shadow: var(--shadow); */
 }
 ::-webkit-calendar-picker-indicator {
-  background-color: #ffffff;
+  background-color: var(--main-font-color);
   padding: 5px;
   cursor: pointer;
   border-radius: 3px;
@@ -228,35 +249,39 @@ input[type='radio'] {
   font-weight: bold;
   padding: 0.2em 1em;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 label[for='low'] {
-  color: green;
-  border: 1px solid green;
+  color: var(--low-priority);
+  border: 2px solid var(--low-priority);
 }
 label[for='medium'] {
-  color: orange;
-  border: 1px solid orange;
+  color: var(--medium-priority);
+  border: 2px solid var(--medium-priority);
 }
 label[for='high'] {
-  color: red;
-  border: 1px solid red;
+  color: var(--high-priority);
+  border: 2px solid var(--high-priority);
 }
 
 #low:checked + label,
 #low + label:hover {
-  background-color: green;
-  color: white;
+  box-shadow: var(--shadow);
+  background-color: var(--low-priority);
+  color: var(--main-font-color);
 }
 #medium:checked + label,
 #medium + label:hover {
-  background-color: orange;
-  color: white;
+  box-shadow: var(--shadow);
+  background-color: var(--medium-priority);
+  color: var(--main-font-color);
 }
 #high:checked + label,
 #high + label:hover {
-  background-color: red;
-  color: white;
+  box-shadow: var(--shadow);
+  background-color: var(--high-priority);
+  color: var(--main-font-color);
 }
 /* MAIN todoInputs submission */
 .todoInputsSubmitButtons {
@@ -275,13 +300,35 @@ label[for='high'] {
 
 .blur {
   content: '';
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--blur);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+/* MAIN todos */
+.addTodo {
+  position: absolute;
+  bottom: 10%;
+  right: 4%;
+  border: none;
+  outline: none;
+  background-color: var(--first-background);
+  color: var(--main-font-color);
+  font-size: 1.7rem;
+  font-weight: bolder;
+  padding: 0.5em;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
 /* FOOTER */
@@ -291,6 +338,6 @@ footer {
   justify-content: center;
   align-items: center;
   font-weight: bolder;
-  background-color: #6dc0d5;
-  color: white;
+  background-color: var(--first-background);
+  color: var(--main-font-color);
 }
