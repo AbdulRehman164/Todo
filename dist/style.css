@@ -219,63 +219,45 @@ input[type='date'] {
 }
 
 /* MAIN todoInputs priority */
-.priorityInputPara button {
-  padding: 0.3em 1em;
-  outline: none;
-  cursor: pointer;
+input[type='radio'] {
+  display: none;
+}
+
+.priorityLable {
+  font-size: 1.2rem;
   font-weight: bold;
-  font-size: 1.1rem;
-  border-radius: 5px;
+  padding: 0.2em 1em;
+  cursor: pointer;
 }
 
-#low:hover {
-  background-color: green;
-  color: white;
-}
-
-#medium:hover {
-  background-color: orange;
-  color: white;
-}
-
-#high:hover {
-  background-color: red;
-  color: white;
-}
-
-.lowActive {
-  background-color: green;
-  color: white;
-  border: 1px solid green;
-}
-.mediumActive {
-  background-color: orange;
-  color: white;
-  border: 1px solid orange;
-}
-
-.highActive {
-  background-color: red;
-  color: white;
-  border: 1px solid red;
-}
-
-.resetLow {
-  background-color: transparent;
+label[for='low'] {
   color: green;
   border: 1px solid green;
 }
-.resetMedium {
-  background-color: transparent;
+label[for='medium'] {
   color: orange;
   border: 1px solid orange;
 }
-.resetHigh {
-  background-color: transparent;
+label[for='high'] {
   color: red;
   border: 1px solid red;
 }
 
+#low:checked + label,
+#low + label:hover {
+  background-color: green;
+  color: white;
+}
+#medium:checked + label,
+#medium + label:hover {
+  background-color: orange;
+  color: white;
+}
+#high:checked + label,
+#high + label:hover {
+  background-color: red;
+  color: white;
+}
 /* MAIN todoInputs submission */
 .todoInputsSubmitButtons {
   display: flex;
