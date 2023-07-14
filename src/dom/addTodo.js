@@ -1,7 +1,6 @@
 import { createTodo } from '../logic/todo';
 import todoFunctionality from './todoFunctionality';
 import updateTodosView from './todosView';
-// import { getPriority, resetPriority } from './utilityModules/priority';
 import getSelectedProjectName from './utilityModules/selectedProject';
 import isValid from './utilityModules/validity';
 

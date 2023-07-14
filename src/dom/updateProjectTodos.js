@@ -13,7 +13,6 @@ export default function updateProjectTodos() {
 
   projectDivs.forEach((projectDiv) => {
     projectDiv.addEventListener('click', () => {
-      console.log(getSelectedProjectName());
       updateTodosView(getSelectedProjectName());
       todoFunctionality();
     });
