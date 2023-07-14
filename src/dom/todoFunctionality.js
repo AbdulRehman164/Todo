@@ -54,6 +54,7 @@ function editTodo() {
     });
   }
 }
+// eslint-disable-next-line consistent-return
 function getData() {
   const titleInput = document.querySelector('#titleInput');
   const dateInput = document.querySelector('#dateInput');
@@ -81,7 +82,7 @@ function renderPreviousValues(index) {
   priorityInput.checked = true;
 
   titleInput.value = todo.title;
-  dateInput.value = todo.dateInput;
+  dateInput.value = todo.dueDate;
   descriptionInput.value = todo.description;
 }
 
