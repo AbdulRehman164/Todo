@@ -3,10 +3,11 @@ import { createProject } from './logic/project';
 import renderView from './dom/renderView';
 
 const data = {
-  title: 'Inbox',
-  description: 'dis',
-  dueDate: 'date',
-  priority: 'p',
+  title: 'Do HomeWork',
+  description:
+    'Do HomeWork do this do that lorem ipusm this that what the  is going on what the  is this',
+  dueDate: '2023/12/12',
+  priority: 'low',
   isChecked: false,
 };
 

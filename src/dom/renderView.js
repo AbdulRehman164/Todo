@@ -1,6 +1,6 @@
 // import todoFunctionality from './todoFunctionality';
 import getSelectedProjectName from './utilityModules/selectedProject';
-import getPriority from './utilityModules/priority';
+// import { getPriority } from './utilityModules/priority';
 import updateProjectView from './projectView';
 import addProject from './addProjects';
 import updateProjectTodos from './updateProjectTodos';
@@ -12,7 +12,7 @@ export default function renderView() {
 
   // setting up the event listeners
   getSelectedProjectName();
-  getPriority();
+  // getPriority();
   addProject();
 
   // Initial projects

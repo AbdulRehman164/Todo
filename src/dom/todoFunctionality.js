@@ -1,9 +1,8 @@
 import updateTodosView from './todosView';
 import { getProject } from '../logic/project';
 import getSelectedProjectName from './utilityModules/selectedProject';
-import getPriority from './utilityModules/priority';
+import isValid from './utilityModules/validity';
 
-// every action that is going to happen on a todo
 export default function todoFunctionality() {
   deleteTodo();
   editTodo();
@@ -24,34 +23,50 @@ function deleteTodo() {
 function editTodo() {
   const editButtons = document.querySelectorAll('.editButton');
   const todosInput = document.querySelector('.todoInputs');
-  const updateTodoButton = document.querySelector('.updateTodo');
+
   for (let i = 0; i < editButtons.length; i++) {
     editButtons[i].addEventListener('click', () => {
+      const todoId =
+        getProject()[getSelectedProjectName()].getProjectTodos()[i].id;
+      const updateTodoButton = document.querySelector(
+        `.updateTodo[data-id="${todoId}"]`
+      );
+
+      document.querySelector('.blur').style.display = 'block';
       todosInput.style.display = 'block';
       updateTodoButton.style.display = 'block';
+      document.querySelector('.submitTodo').style.display = 'none';
+
+      const todo = getProject()[getSelectedProjectName()].getProjectTodos()[i];
       renderPreviousValues(i);
+
       updateTodoButton.addEventListener('click', () => {
-        todosInput.style.display = 'none';
-        getProject()
-          [getSelectedProjectName()].getProjectTodos()
-          [i].edit(getData());
+        if (isValid()) {
+          document.querySelector('.blur').style.display = 'none';
+          todosInput.style.display = 'none';
+          updateTodoButton.style.display = 'none';
+        }
+
+        todo.edit(getData());
         updateTodosView(getSelectedProjectName());
         todoFunctionality();
       });
     });
   }
 }
-
 function getData() {
   const titleInput = document.querySelector('#titleInput');
   const dateInput = document.querySelector('#dateInput');
   const descriptionInput = document.querySelector('#descriptionInput');
-  return {
-    title: titleInput.value,
-    dueDate: dateInput.value,
-    description: descriptionInput.value,
-    priority: getPriority(),
-  };
+  if (isValid()) {
+    const priority = document.querySelector('input[name = "priority"]:checked');
+    return {
+      title: titleInput.value,
+      dueDate: dateInput.value,
+      description: descriptionInput.value,
+      priority: priority.value,
+    };
+  }
 }
 
 function renderPreviousValues(index) {
@@ -59,6 +74,11 @@ function renderPreviousValues(index) {
   const titleInput = document.querySelector('#titleInput');
   const dateInput = document.querySelector('#dateInput');
   const descriptionInput = document.querySelector('#descriptionInput');
+
+  const value = todo.priority;
+  const priorityInput = document.querySelector(`input[value="${value}"]`);
+
+  priorityInput.checked = true;
 
   titleInput.value = todo.title;
   dateInput.value = todo.dateInput;

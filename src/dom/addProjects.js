@@ -11,7 +11,7 @@ export default function addProject() {
 
   addProjectButton.addEventListener('click', () => {
     addProjectButton.style.display = 'none';
-    projectInputDiv.style.display = 'block';
+    projectInputDiv.style.display = 'flex';
 
     submitProjectButton.addEventListener('click', submit);
 

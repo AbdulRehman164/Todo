@@ -12,6 +12,7 @@ export default function updateTodosView(projectName) {
 
 function createTodoView(todo) {
   const todoDiv = document.createElement('div');
+  todoDiv.classList.add('todo');
 
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
@@ -36,10 +37,14 @@ function createTodoView(todo) {
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
   editButton.classList.add('editButton');
+  editButton.dataset.id = todo.id;
 
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
   deleteButton.classList.add('deleteButton');
+  deleteButton.dataset.id = todo.id;
+
+  createUpdateButton(todo);
 
   todoDiv.append(
     checkbox,
@@ -51,4 +56,17 @@ function createTodoView(todo) {
     deleteButton
   );
   return todoDiv;
+}
+
+function createUpdateButton(todo) {
+  const todoInputsSubmitButtonsPara = document.querySelector(
+    '.todoInputsSubmitButtons'
+  );
+  const updateButton = document.createElement('button');
+  updateButton.classList.add('submit', 'updateTodo');
+  updateButton.textContent = 'Update';
+  updateButton.dataset.id = todo.id;
+  updateButton.style.display = 'none';
+
+  todoInputsSubmitButtonsPara.appendChild(updateButton);
 }
