@@ -230,7 +230,6 @@ input[type='date'] {
   border: none;
   outline: none;
   border-radius: 5px;
-  /* box-shadow: var(--shadow); */
 }
 ::-webkit-calendar-picker-indicator {
   background-color: var(--main-font-color);

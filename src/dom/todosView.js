@@ -37,12 +37,10 @@ function createTodoView(todo) {
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
   editButton.classList.add('editButton');
-  editButton.dataset.id = todo.id;
 
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
   deleteButton.classList.add('deleteButton');
-  deleteButton.dataset.id = todo.id;
 
   createUpdateButton(todo);
 
