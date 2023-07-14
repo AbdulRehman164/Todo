@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="blur" style="display: none;"></div>
     <header>
         <img src="./img/todoLogo.png" alt="todo Logo">
         <p>To-Do</p>
@@ -21,7 +22,7 @@
             <button class="addProjectButton add">+ Add Project</button>
             <div class="projectInputDiv" style="display: none;">
                 <input class="projectInput" type="text" maxlength="10" required>
-                <div projectInputButtons>
+                <div class="projectInputButtons">
                     <button class="cancel cancelProjectInput">Cancel</button>
                     <button class="submitProjectButton submit">Add</button>
                 </div>
@@ -32,22 +33,33 @@
         <section class="todos"></section>
         <button class="addTodo add">+</button>
         <section class="todoInputs" style="display: none;">
-            <p class="titleInputPara">
-                <input type="text" id="titleInput" placeholder="Title" maxlength="30" required>
-            </p>
-            <p class="dateInputPara">
-                <input type="date" id="dateInput" required>
-            </p>
-            <p class="descriptionInputPara">
-                <textarea name="description" id="descriptionInput" cols="30" rows="10"></textarea>
-            </p>
-            <p class="priorityInputPara">
-                <button id="low">Low</button>
-                <button id="medium">Medium</button>
-                <button id="high">High</button>
-            </p>
-            <button class="submitTodo submit" style="display: none;">Add</button>
-            <button class="updateTodo" style="display: none;">Update</button>
+            <h2 class="createTodoHeading">Create Todo</h2>
+            <div class="todoInputsMain">
+                <div class="todoInputs-text-and-date">
+                    <p class="titleInputPara">
+                        <input type="text" id="titleInput" placeholder="Title: Do Homework" maxlength="30" required>
+                    </p>
+                    <p class="dateInputPara">
+                        <input type="date" id="dateInput" required>
+                    </p>
+                </div>
+                <p class="descriptionInputPara">
+                    <textarea name="description" id="descriptionInput" placeholder="Details eg: phone, address"
+                        cols="30" rows="10"></textarea>
+                </p>
+                <p class="priorityInputPara">
+                    <input type="radio" id="low" value="low" name="priority" required>
+                    <label for="low">Low</label>
+                    <input type="radio" id="medium" value="medium" name="priority">
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="high" value="high" name="priority">
+                    <label for="high">High</label>
+                </p>
+                <div class="todoInputsSubmitButtons">
+                    <button class="cancelTodoButton cancel">Cancel</button>
+                    <button class="submitTodo submit" style="display: none;">Add</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

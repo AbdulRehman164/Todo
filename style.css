@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  display: grid;
+  grid-template-rows: 60px 1fr 30px;
+  grid-template-columns: 17% 1fr;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-left: 1rem;
+  background-color: #6dc0d5;
+  color: white;
+}
+header p {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+header img {
+  width: 50px;
+  height: 50px;
+}
+
+/* SIDEBAR */
+
+#sidebar {
+  padding: 1rem;
+  background-color: #eff8fb;
+}
+
+/* SIDEBAR projects */
+#projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#projects h2 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  display: none;
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.project img {
+  height: 20px;
+  width: 20px;
+}
+
+.project {
+  font-weight: bolder;
+  display: flex;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+.project:hover {
+  background-color: #dbf2f9;
+  border-radius: 10px;
+}
+
+/* SIDEBAR project inputs and buttons */
+.addProjectButton {
+  border: none;
+  background-color: #6dc0d5;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-align: center;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.projectInput {
+  padding: 0.1rem;
+  border-radius: 5px;
+  font-size: 1.09rem;
+  width: 100%;
+  border: 2px solid rgb(211, 211, 211);
+  outline: none;
+}
+.projectInput:focus {
+  outline: none;
+  border: 2px solid #15a8cd;
+}
+.projectInputButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.projectInputDiv {
+  display: flex; /* also specified in js */
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.submit {
+  background-color: #6dc0d5;
+  font-size: 1.1rem;
+  flex: 1;
+  padding: 0.2rem 0;
+  font-weight: bold;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cancel {
+  background-color: rgb(209, 8, 8);
+  font-size: 1.1rem;
+  flex: 1;
+  padding: 0.2rem 0;
+  font-weight: bold;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* MAIN */
+main {
+  padding: 2rem;
+}
+
+.todo {
+  display: flex;
+}
+
+/* MAIN todoInputs */
+.todoInputs {
+  position: absolute;
+  top: 10%;
+  left: 24%;
+  height: 7 0vh;
+  width: 50vw;
+  background-color: #eff8fb;
+  z-index: 9;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 5px rgba(0, 0, 0, 0.15);
+}
+.todoInputsMain {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#titleInput {
+  font-size: 1.3rem;
+  width: 100%;
+  border: none;
+  padding: 0.3em;
+  border-radius: 5px;
+  outline: none;
+}
+.titleInputPara {
+  flex-grow: 1;
+}
+
+.todoInputs-text-and-date {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#descriptionInput {
+  width: 78.5%;
+  outline: none;
+  border: none;
+  resize: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-family: roboto, sans-sarif;
+  padding: 0.3em;
+}
+
+.createTodoHeading {
+  background-color: #6dc0d5;
+  color: white;
+  padding: 0.2em;
+  font-size: 2rem;
+  border-radius: 5px 5px 0 0;
+}
+
+input[type='date'] {
+  background-color: #6dc0d5;
+  padding: 0.3em;
+  font-family: robot, sans-serif;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* MAIN todoInputs priority */
+.priorityInputPara button {
+  padding: 0.3em 1em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+#low:hover {
+  background-color: green;
+  color: white;
+}
+
+#medium:hover {
+  background-color: orange;
+  color: white;
+}
+
+#high:hover {
+  background-color: red;
+  color: white;
+}
+
+.lowActive {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+.mediumActive {
+  background-color: orange;
+  color: white;
+  border: 1px solid orange;
+}
+
+.highActive {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+
+.resetLow {
+  background-color: transparent;
+  color: green;
+  border: 1px solid green;
+}
+.resetMedium {
+  background-color: transparent;
+  color: orange;
+  border: 1px solid orange;
+}
+.resetHigh {
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+}
+
+/* MAIN todoInputs submission */
+.todoInputsSubmitButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+.todoInputsSubmitButtons button {
+  padding: 0.2em 1em;
+}
+.submitTodo,
+.cancelTodoButton,
+.updateTodo {
+  flex: 0; /*Overriding*/
+}
+
+.blur {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+/* FOOTER */
+footer {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  background-color: #6dc0d5;
+  color: white;
+}
