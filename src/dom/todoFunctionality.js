@@ -6,6 +6,7 @@ import isValid from './utilityModules/validity';
 export default function todoFunctionality() {
   deleteTodo();
   editTodo();
+  details();
   isCompleted();
 }
 
@@ -94,4 +95,76 @@ function isCompleted() {
         checkboxes[i].checked;
     });
   }
+}
+
+function details() {
+  const main = document.querySelector('main');
+  const detailsButtons = document.querySelectorAll('.detailsButton');
+  const blur = document.querySelector('.blur');
+  for (let i = 0; i < detailsButtons.length; i++) {
+    detailsButtons[i].addEventListener('click', () => {
+      main.appendChild(showDetails(i));
+      blur.style.display = 'block';
+      closeDetails();
+    });
+  }
+}
+
+function showDetails(index) {
+  const todo = getProject()[getSelectedProjectName()].getProjectTodos()[index];
+
+  const section = document.createElement('section');
+  section.classList.add('detailsSection');
+
+  const table = document.createElement('table');
+  table.classList.add('detailsTable');
+
+  const thead = document.createElement('thead');
+  const caption = document.createElement('caption');
+  caption.textContent = 'Details';
+
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('closeDetailsButton');
+  closeButton.textContent = 'X';
+
+  thead.append(caption, closeButton);
+
+  const tbody = document.createElement('tbody');
+
+  const title = createTableRow('Title ', `${todo.title}`);
+
+  const dueDate = createTableRow('Date ', `${todo.dueDate}`);
+
+  const description = createTableRow('Details ', `${todo.description}`);
+
+  const priority = createTableRow('Priority ', `${todo.priority}`);
+
+  tbody.append(title, dueDate, description, priority);
+
+  table.append(thead, tbody);
+
+  section.append(table);
+
+  return section;
+}
+
+function createTableRow(head, body) {
+  const tr = document.createElement('tr');
+  const th = document.createElement('th');
+  const td = document.createElement('td');
+
+  th.textContent = head;
+  td.textContent = body;
+
+  tr.append(th, td);
+
+  return tr;
+}
+
+function closeDetails() {
+  const closeButton = document.querySelector('.closeDetailsButton');
+  closeButton.addEventListener('click', () => {
+    document.querySelector('.blur').style.display = 'none';
+    document.querySelector('.detailsSection').remove();
+  });
 }

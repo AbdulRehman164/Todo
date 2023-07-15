@@ -22,9 +22,9 @@ function createTodoView(todo) {
   titleDiv.textContent = todo.title;
   titleDiv.classList.add('titleDiv');
 
-  const descriptionDiv = document.createElement('div');
-  descriptionDiv.textContent = todo.description;
-  descriptionDiv.classList.add('descriptionDiv');
+  const detailsButton = document.createElement('button');
+  detailsButton.textContent = 'Details';
+  detailsButton.classList.add('detailsButton');
 
   const dueDateDiv = document.createElement('div');
   dueDateDiv.textContent = todo.dueDate;
@@ -47,7 +47,7 @@ function createTodoView(todo) {
   todoDiv.append(
     checkbox,
     titleDiv,
-    descriptionDiv,
+    detailsButton,
     dueDateDiv,
     priorityDiv,
     editButton,
