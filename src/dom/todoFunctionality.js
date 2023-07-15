@@ -88,6 +88,14 @@ function renderPreviousValues(index) {
 }
 
 function isCompleted() {
+  const todos = getProject()[getSelectedProjectName()].getProjectTodos();
+  todos.forEach((todo) => {
+    if (todo.isChecked === true) {
+      checkedStyle(todos.indexOf(todo));
+    } else {
+      uncheckedStyle(todos.indexOf(todo));
+    }
+  });
   const checkboxes = document.querySelectorAll('input[type = "checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener('change', () => {
