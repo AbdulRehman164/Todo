@@ -169,6 +169,8 @@ main {
 .todo {
   display: flex;
   gap: 1rem;
+  border-bottom: 1px solid gray;
+  align-items: center;
 }
 
 input[type='checkbox'] {
@@ -178,7 +180,6 @@ input[type='checkbox'] {
   width: 15px;
   background-color: #d5d5d5;
   cursor: pointer;
-  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,6 +201,10 @@ input[type='checkbox']:checked:after {
   display: block;
 }
 
+.checkbox-checked {
+  opacity: 0.3;
+}
+
 .titleDiv {
   flex: 1;
   font-weight: bold;
@@ -212,6 +217,7 @@ input[type='checkbox']:checked:after {
   border-radius: 5px;
   color: var(--first-background);
   cursor: pointer;
+  margin-bottom: 2px;
 }
 
 .detailsButton:hover {
@@ -221,7 +227,7 @@ input[type='checkbox']:checked:after {
 
 .dueDateDiv {
   color: #4c98e4;
-  width: 80px;
+  width: 60px;
 }
 
 .deleteButton,
@@ -229,7 +235,6 @@ input[type='checkbox']:checked:after {
   background: transparent;
   border: none;
   cursor: pointer;
-  opacity: 0.5;
 }
 .deleteButtonImage,
 .editButtonImage {
@@ -239,7 +244,7 @@ input[type='checkbox']:checked:after {
 
 .deleteButton:hover,
 .editButton:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 /* MAIN todos details section */
