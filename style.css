@@ -164,16 +164,85 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  justify-content: center;
 }
 .todo {
   display: flex;
   gap: 1rem;
 }
 
-.titleDiv {
-  flex: 1;
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  background-color: #d5d5d5;
+  cursor: pointer;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input[type='checkbox']:hover {
+  background: #a5a5a5;
+}
+input[type='checkbox']:after {
+  content: '\2713';
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+input[type='checkbox']:checked {
+  background-color: var(--first-background);
 }
 
+input[type='checkbox']:checked:after {
+  display: block;
+}
+
+.titleDiv {
+  flex: 1;
+  font-weight: bold;
+}
+.detailsButton {
+  padding: 0.4em 1em;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid var(--first-background);
+  border-radius: 5px;
+  color: var(--first-background);
+  cursor: pointer;
+}
+
+.detailsButton:hover {
+  background-color: var(--first-background);
+  color: var(--main-font-color);
+}
+
+.dueDateDiv {
+  color: #4c98e4;
+  width: 80px;
+}
+
+.deleteButton,
+.editButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.deleteButtonImage,
+.editButtonImage {
+  width: 18px;
+  height: 18px;
+}
+
+.deleteButton:hover,
+.editButton:hover {
+  opacity: 1;
+}
+
+/* MAIN todos details section */
 .detailsSection {
   background-color: var(--second-background);
   z-index: 9;
