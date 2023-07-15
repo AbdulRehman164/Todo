@@ -91,10 +91,51 @@ function isCompleted() {
   const checkboxes = document.querySelectorAll('input[type = "checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener('change', () => {
-      getProject()[getSelectedProjectName()].getProjectTodos()[i].isChecked =
-        checkboxes[i].checked;
+      const todo = getProject()[getSelectedProjectName()].getProjectTodos()[i];
+      todo.isChecked = checkboxes[i].checked;
+      if (todo.isChecked === true) {
+        checkedStyle(i);
+      } else {
+        uncheckedStyle(i);
+      }
     });
   }
+}
+
+function checkedStyle(index) {
+  const title = document.querySelectorAll('.titleDiv')[index];
+  title.style.textDecoration = 'line-through';
+  title.classList.add('checkbox-checked');
+
+  const detailsButton = document.querySelectorAll('.detailsButton')[index];
+  detailsButton.classList.add('checkbox-checked');
+
+  const datePara = document.querySelectorAll('.dueDateDiv')[index];
+  datePara.classList.add('checkbox-checked');
+
+  const deleteButton = document.querySelectorAll('.deleteButton')[index];
+  deleteButton.classList.add('checkbox-checked');
+
+  const editButton = document.querySelectorAll('.editButton')[index];
+  editButton.classList.add('checkbox-checked');
+}
+
+function uncheckedStyle(index) {
+  const title = document.querySelectorAll('.titleDiv')[index];
+  title.style.textDecoration = 'none';
+  title.classList.remove('checkbox-checked');
+
+  const detailsButton = document.querySelectorAll('.detailsButton')[index];
+  detailsButton.classList.remove('checkbox-checked');
+
+  const datePara = document.querySelectorAll('.dueDateDiv')[index];
+  datePara.classList.remove('checkbox-checked');
+
+  const deleteButton = document.querySelectorAll('.deleteButton')[index];
+  deleteButton.classList.remove('checkbox-checked');
+
+  const editButton = document.querySelectorAll('.editButton')[index];
+  editButton.classList.remove('checkbox-checked');
 }
 
 function details() {
