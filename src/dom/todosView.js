@@ -1,4 +1,6 @@
 import { getProject } from '../logic/project';
+import editImage from '../../dist/img/edit.png';
+import deleteImage from '../../dist/img/delete.png';
 
 export default function updateTodosView(projectName) {
   const todosSection = document.querySelector('.todos');
@@ -27,19 +29,21 @@ function createTodoView(todo) {
   detailsButton.classList.add('detailsButton');
 
   const dueDateDiv = document.createElement('div');
-  dueDateDiv.textContent = todo.dueDate;
+  dueDateDiv.textContent = getDate(todo);
   dueDateDiv.classList.add('dueDateDiv');
 
-  const priorityDiv = document.createElement('div');
-  priorityDiv.textContent = todo.priority;
-  priorityDiv.classList.add('priorityDiv');
-
   const editButton = document.createElement('button');
-  editButton.textContent = 'Edit';
+  const editButtonImage = new Image();
+  editButtonImage.src = editImage;
+  editButtonImage.classList.add('editButtonImage');
+  editButton.appendChild(editButtonImage);
   editButton.classList.add('editButton');
 
   const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'Delete';
+  const deleteButtonImage = new Image();
+  deleteButtonImage.src = deleteImage;
+  deleteButtonImage.classList.add('deleteButtonImage');
+  deleteButton.appendChild(deleteButtonImage);
   deleteButton.classList.add('deleteButton');
 
   createUpdateButton(todo);
@@ -49,11 +53,21 @@ function createTodoView(todo) {
     titleDiv,
     detailsButton,
     dueDateDiv,
-    priorityDiv,
     editButton,
     deleteButton
   );
   return todoDiv;
+}
+
+function getDate(todo) {
+  const date = todo.dueDate;
+  const dateArray = date.split('-');
+  const monthNumber = dateArray[1] - 1;
+  const month = new Date(0, monthNumber).toLocaleString('en-US', {
+    month: 'short',
+  });
+
+  return `${month}-${dateArray[2]}`;
 }
 
 function createUpdateButton(todo) {
