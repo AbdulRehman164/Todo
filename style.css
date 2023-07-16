@@ -80,17 +80,32 @@ header img {
   height: 20px;
   width: 20px;
 }
-
 .project {
-  font-weight: bolder;
   display: flex;
-  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.3rem;
+}
+.projectNamePara {
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 .project:hover {
   background-color: var(--project-hover);
   border-radius: 10px;
+}
+
+/* SIEDBAR undone projects number */
+.undoneTodosPara {
+  background-color: red;
+  color: var(--main-font-color);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 0.7rem;
 }
 
 /* SIDEBAR project inputs and buttons */
