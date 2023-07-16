@@ -2,6 +2,7 @@ import updateTodosView from './todosView';
 import { getProject } from '../logic/project';
 import getSelectedProjectName from './utilityModules/selectedProject';
 import isValid from './utilityModules/validity';
+import updateProjectView from './projectView';
 
 export default function todoFunctionality() {
   deleteTodo();
@@ -101,6 +102,7 @@ function isCompleted() {
     checkboxes[i].addEventListener('change', () => {
       const todo = getProject()[getSelectedProjectName()].getProjectTodos()[i];
       todo.isChecked = checkboxes[i].checked;
+      updateProjectView();
       if (todo.isChecked === true) {
         checkedStyle(i);
       } else {

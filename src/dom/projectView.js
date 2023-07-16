@@ -9,7 +9,16 @@ export default function updateProjectView() {
   Object.keys(projects).forEach((prop) => {
     const projectDiv = document.createElement('div');
     projectDiv.classList.add('project');
-    projectDiv.textContent = projects[prop].name;
+    const projectNamePara = document.createElement('p');
+    projectNamePara.classList.add('projectNamePara');
+    projectNamePara.textContent = projects[prop].name;
+
+    const undoneTodosPara = document.createElement('p');
+    undoneTodosPara.classList.add('undoneTodosPara');
+    undoneTodosPara.textContent = projects[prop].getUndoneTodos();
+
+    projectDiv.append(projectNamePara, undoneTodosPara);
+
     projectsSection.appendChild(projectDiv);
   });
 }

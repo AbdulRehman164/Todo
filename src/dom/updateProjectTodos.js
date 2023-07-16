@@ -8,7 +8,9 @@ export default function updateProjectTodos() {
 
   // initial Rendering
   if (todosSection.textContent === '')
-    updateTodosView(projectDivs[0].textContent);
+    updateTodosView(
+      projectDivs[0].querySelector('.projectNamePara').textContent
+    );
   todoFunctionality();
 
   projectDivs.forEach((projectDiv) => {

@@ -1,4 +1,5 @@
 import { createTodo } from '../logic/todo';
+import updateProjectView from './projectView';
 import todoFunctionality from './todoFunctionality';
 import updateTodosView from './todosView';
 import getSelectedProjectName from './utilityModules/selectedProject';
@@ -51,6 +52,7 @@ function submit() {
     document.querySelector('.todoInputs').style.display = 'none';
     updateTodosView(getSelectedProjectName());
     todoFunctionality();
+    updateProjectView();
   }
 }
 
