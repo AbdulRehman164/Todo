@@ -103,6 +103,7 @@ function isCompleted() {
       const todo = getProject()[getSelectedProjectName()].getProjectTodos()[i];
       todo.isChecked = checkboxes[i].checked;
       updateProjectView();
+      updateProjcetTodos();
       if (todo.isChecked === true) {
         checkedStyle(i);
       } else {
@@ -110,6 +111,18 @@ function isCompleted() {
       }
     });
   }
+}
+
+// to avoid dependency circle
+function updateProjcetTodos() {
+  const projectDivs = document.querySelectorAll('.project');
+  // todoFunctionality();
+  projectDivs.forEach((projectDiv) => {
+    projectDiv.addEventListener('click', () => {
+      updateTodosView(getSelectedProjectName());
+      todoFunctionality();
+    });
+  });
 }
 
 function checkedStyle(index) {

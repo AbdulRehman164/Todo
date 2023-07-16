@@ -18,6 +18,9 @@ export default function updateProjectView() {
     undoneTodosPara.textContent = projects[prop].getUndoneTodos();
 
     projectDiv.append(projectNamePara, undoneTodosPara);
+    if (projects[prop].getUndoneTodos() === 0) {
+      undoneTodosPara.remove();
+    }
 
     projectsSection.appendChild(projectDiv);
   });

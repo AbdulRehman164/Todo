@@ -2,6 +2,7 @@ import { createTodo } from '../logic/todo';
 import updateProjectView from './projectView';
 import todoFunctionality from './todoFunctionality';
 import updateTodosView from './todosView';
+import updateProjectTodos from './updateProjectTodos';
 import getSelectedProjectName from './utilityModules/selectedProject';
 import isValid from './utilityModules/validity';
 
@@ -53,6 +54,7 @@ function submit() {
     updateTodosView(getSelectedProjectName());
     todoFunctionality();
     updateProjectView();
+    updateProjectTodos();
   }
 }
 
