@@ -1,16 +1,33 @@
 import { getTodos } from './todo';
 
-const projectsObject = [];
+const projectsObject =
+  localStorage.getItem('projectsObject') !== null
+    ? JSON.parse(localStorage.getItem('projectsObject'))
+    : {};
+
 export function createProject(name) {
-  const proto = {
-    getProjectTodos,
-    getUndoneTodos,
-  };
-  projectsObject[name] = Object.assign(Object.create(proto), { name });
+  let shouldReturn = false;
+  Object.keys(projectsObject).forEach((prop) => {
+    if (projectsObject[prop].name === name) shouldReturn = true;
+  });
+
+  if (shouldReturn === true) return;
+  projectsObject[name] = { name };
+  localStorage.setItem('projectsObject', JSON.stringify(projectsObject));
 }
 
 export function getProject() {
-  return projectsObject;
+  const projects =
+    localStorage.getItem('projectsObject') !== null
+      ? JSON.parse(localStorage.getItem('projectsObject'))
+      : projectsObject;
+
+  Object.keys(projects).forEach((prop) => {
+    projects[prop].getProjectTodos = getProjectTodos;
+    projects[prop].getUndoneTodos = getUndoneTodos;
+  });
+
+  return projects;
 }
 
 function getProjectTodos() {

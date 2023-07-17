@@ -112,11 +112,6 @@ function isCompleted() {
       todo.checkTodo(checkboxes[i].checked);
       updateProjectView();
       updateProjcetTodos();
-      if (todo.isChecked === true) {
-        checkedStyle(i);
-      } else {
-        uncheckedStyle(i);
-      }
     });
   }
 }
