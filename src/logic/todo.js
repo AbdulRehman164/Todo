@@ -15,7 +15,13 @@ export function createTodo(data, project) {
     isChecked: data.isChecked,
     project,
   };
-  // todosArray.push(Object.assign(Object.create(proto), todo));
+
+  let shouldReturn = false;
+  todosArray.forEach((arrayTodo) => {
+    if (arrayTodo.title === todo.title) shouldReturn = true;
+  });
+  if (shouldReturn === true) return;
+
   todosArray.push(todo);
   localStorage.setItem('todosArray', JSON.stringify(todosArray));
 }
