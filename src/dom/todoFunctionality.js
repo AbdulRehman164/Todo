@@ -109,7 +109,7 @@ function isCompleted() {
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener('change', () => {
       const todo = getProject()[getSelectedProjectName()].getProjectTodos()[i];
-      todo.isChecked = checkboxes[i].checked;
+      todo.checkTodo(checkboxes[i].checked);
       updateProjectView();
       updateProjcetTodos();
       if (todo.isChecked === true) {
