@@ -16,7 +16,6 @@ export default function addTodo() {
     todoInputs.style.display = 'block';
     submitTodoButton.style.display = 'block';
     document.querySelector('.blur').style.display = 'block';
-    document.querySelector('.updateTodo').style.display = 'none';
     resetForm();
     submitTodoButton.addEventListener('click', submit);
   });

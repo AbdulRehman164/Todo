@@ -1,3 +1,6 @@
+// const todosArray = localStorage.getItem('todosArray' !== null)
+//   ? JSON.parse(localStorage.getItem('todosArray'))
+//   : [];
 const todosArray = [];
 
 // CREATING TODOS

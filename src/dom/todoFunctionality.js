@@ -15,9 +15,17 @@ function deleteTodo() {
   const deleteButtons = document.querySelectorAll('.deleteButton');
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener('click', () => {
+      // checking if button exist if the eventListener is setted for multiple times
+      if (
+        getProject()[getSelectedProjectName()].getProjectTodos()[i] ===
+        undefined
+      )
+        return;
       getProject()[getSelectedProjectName()].getProjectTodos()[i].deleteTodo();
       updateTodosView(getSelectedProjectName());
       todoFunctionality();
+      updateProjectView();
+      updateProjcetTodos();
     });
   }
 }
@@ -116,7 +124,7 @@ function isCompleted() {
 // to avoid dependency circle
 function updateProjcetTodos() {
   const projectDivs = document.querySelectorAll('.project');
-  // todoFunctionality();
+  todoFunctionality();
   projectDivs.forEach((projectDiv) => {
     projectDiv.addEventListener('click', () => {
       updateTodosView(getSelectedProjectName());
