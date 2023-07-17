@@ -10,10 +10,10 @@ export default function isValid() {
     titleInput.checkValidity() &&
     descriptionInput.checkValidity();
   if (!isvalid) {
+    priorityInput.reportValidity();
     dateInput.reportValidity();
     titleInput.reportValidity();
     descriptionInput.reportValidity();
-    priorityInput.reportValidity();
     return false;
   }
   return true;
