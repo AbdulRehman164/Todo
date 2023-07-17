@@ -460,9 +460,10 @@ label[for='high'] {
 
 /* MAIN todos */
 .addTodo {
-  position: absolute;
+  position: sticky;
   bottom: 10%;
-  right: 4%;
+  /* right: 4%; */
+  float: right;
   border: none;
   outline: none;
   background-color: var(--first-background);
